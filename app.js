@@ -132,7 +132,7 @@ function updateScore() {
       myScoreValue++;
       myScore.innerHTML = myScoreValue;
       localStorage.setItem('myScoreValue', myScoreValue);
-    } else if (textDisplay.innerHTML === 'YOU LOSE') {
+    } else if (textDisplay.innerHTML === 'YOU LOST') {
       pcScoreValue++;
       pcScore.innerHTML = pcScoreValue;
       localStorage.setItem('pcScoreValue', pcScoreValue);
