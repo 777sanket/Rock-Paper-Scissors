@@ -83,7 +83,7 @@ choiceBtn.forEach((btn) => {
       updateScore();
       selectBtn.classList.add('pulse-effect');
     } else {
-      textDisplay.innerHTML = 'YOU LOSE';
+      textDisplay.innerHTML = 'YOU LOST';
       commonText.style.opacity = '1';
       PlayAgain.innerHTML = 'PLAY AGAIN';
       btnRules.classList.toggle('rules__btn_win');
