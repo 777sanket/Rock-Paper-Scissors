@@ -1,0 +1,534 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #8CC461;
+  height: 100vh;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+  text-transform: uppercase;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 100vh;
+  opacity: 1;
+  z-index: 500;
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  padding: 1rem 1rem;
+  margin-top: 3rem;
+  color: white;
+  border: 3px solid #FFFFFF;
+  border-radius: 20px;
+  height: 130px;
+}
+
+.logo {
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  font: 2.5rem Roboto, sans-serif;
+}
+
+.score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 40%;
+  gap: 1rem;
+}
+
+
+.me {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  padding: 7px 0 7px 0;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.score__title {
+  color: #656565;
+  font: 1rem Roboto, sans-serif;
+  letter-spacing: 2px;
+}
+
+.score__count {
+
+
+  color: #252525;
+  font: 5rem Roboto, sans-serif;
+  font-style: bold;
+}
+
+
+/* Game Css */
+
+.game-container {
+  margin: 0;
+  padding: 0;
+  height: 400px;
+  width: 450px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+}
+
+.game-show-no{
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+} 
+
+.top {
+  height: 130px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.game-item {
+  position: absolute;
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  z-index: 10;
+  background-color: white;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.game-item:focus{
+  border: 4px solid inherit;
+}
+
+.rock {
+  left: 0;
+  border: 16px solid #0074B6;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.scissor {
+  right : 0;
+  border: 16px solid #BD00FF;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  
+}
+
+.paper {
+  border: 16px solid #FFA943;
+}
+
+.item2 {
+  height: 20px;
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.750);
+  position: absolute;
+  left : 30%;
+}
+
+.middle {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.mid1 {
+  height: 20px;
+  width: 800px;
+  background-color: rgba(0, 0, 0, 0.750);
+  left : 30%;
+  transform: rotate(60deg);
+}
+
+.mid2 {
+  height: 20px;
+  width: 800px;
+  background-color: rgba(0, 0, 0, 0.750);
+  left : 30%;
+  transform: rotate(120deg);
+}
+
+.bottom {
+  height: 130px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+
+/* Rules CSS and Modal */
+
+.rules__btn {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  background: none;
+  color: white;
+  font: 2rem Roboto, sans-serif;
+  padding: 0.5rem 2rem;
+  border-radius: 15px;
+  border: 3px solid white;
+  cursor: pointer;
+}
+
+.rules__btn:focus{
+  border: 4px solid rgb(255, 255, 255);
+}
+
+
+.modal {
+  position: absolute;
+  width : 23%;
+  height: 50%;
+  bottom: 8rem;
+  right: 2rem;
+  font-family: Roboto, sans-serif;
+  color: white;
+  pointer-events: none;
+  opacity: 0;
+  transform: opacity 1s ease-in-out;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background: #FF0000;
+  border: 6px solid #FFFFFF;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+.modal-container {
+  width: 90%;
+  height: 85%;
+  border: 8px solid #FFFFFF;
+  border-radius: 15px;
+  background: #004429;
+  position: absolute;
+  top: 50%;
+  left: 47%;
+  transform: translate(-50%, -49%);
+  display: grid;
+  place-items: center;
+  z-index: -1;;
+}
+
+.modal-header {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+
+.modal-content {
+  font-size: 0.9rem;
+  font-weight: 300;
+  padding: 0 0.5rem;
+ 
+}
+
+li::marker {
+  content: '■  ';           
+  font-size: 20px;        
+  color: #FFD600;
+}          
+
+.show-modal {
+  opacity: 1;
+  pointer-events: initial;
+  transition: all 0.3s ease-in-out; 
+}
+
+
+/* Result */
+
+.results {
+  position: absolute;
+  width: 60%;
+  height: 30%;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: 
+  "me-picked ... pc-picked"
+  "my-choice result-text1 pc-choice"; 
+  opacity: 0;
+  z-index: -100;
+  transition: all 0.3s ease-in-out; 
+}
+
+.show-result {
+  opacity: 1;
+  z-index: 100;
+  transition: all 0.3s ease-in-out;
+}
+
+.me-text {
+  grid-area: me-picked;
+  color: white;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+
+}
+
+.pc-text {
+  grid-area: pc-picked;
+  color: white;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+}
+
+.me-result {
+  grid-area: my-choice;
+}
+
+.pc-result {
+  grid-area: pc-choice;
+}
+
+
+.select-btn {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: white;
+  display: grid;
+  place-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.results img {
+  transform: scale(1.3);
+  border: none;
+}
+
+.result-text {
+  grid-area: result-text1;
+  position: absolute;
+  bottom: 1.7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  line-height: 0.7;
+  letter-spacing: 4px;
+}
+
+.me-win {
+  font-size: 2.7rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.me-lost {
+  opacity: 0;
+}
+
+.common-text {
+  margin: 0;
+}
+
+.replay {
+  width: 200px;
+  height: 50px;
+  background: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  color: #6B6B6B;
+  letter-spacing: 2px;
+  font: 1rem Roboto, sans-serif;
+  text-transform: uppercase;
+}
+
+/* Pulse Effect CSS */
+
+@keyframes pulse {
+  0% {
+    box-shadow: 
+      0 0 0 0px rgba(59, 103, 32, 1),    
+      0 0 0 20px rgba(46, 154, 37, 0.39), 
+      0 0 0 30px rgba(29, 168, 43, 0.79); 
+  }
+
+  50% {
+    box-shadow: 
+      0 0 0 40px rgba(59, 103, 32, 0.5),  
+      0 0 0 70px rgba(46, 154, 37, 0.2),   
+      0 0 0 100px rgba(29, 168, 43, 0.4);  
+  }
+
+  100% {
+    box-shadow: 
+      0 0 0 0px rgba(59, 103, 32, 0),   
+      0 0 0 30px rgba(46, 154, 37, 0), 
+      0 0 0 40px rgba(29, 168, 43, 0);
+  }
+}
+
+.pulse-effect {
+  animation: pulse 4s ease-in infinite; 
+  z-index: -1;
+  transition: all 2s ease-in-out;
+}
+
+
+
+/* Next Button CSS */
+
+.next__btn {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  background: none;
+  color: white;
+  border: 3px solid white;
+  padding: 0.5rem 2.2rem;
+  border-radius: 15px;
+  letter-spacing: 2px;
+  opacity: 0;
+  font: 2rem Roboto, sans-serif;
+  text-transform: uppercase;
+  z-index: -10;
+}
+
+.next__btn:focus {
+  border: 3px solid rgba(255, 255, 255, 0.808);
+}
+
+.next-btn-hide {
+  opacity: 0;
+  pointer-events: none;
+  z-index: -10;
+  transition: all 0.3s ease-in-out;
+}
+
+
+/* Hurray CSS */
+
+.Hurray {
+  position: absolute;
+  width: 95%;
+  height: 95%;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  z-index: -200;
+  }
+
+.Cup {
+  position: absolute;
+  top: 30%;
+  scale: 1.1;
+  z-index: 2;
+}
+
+.star {
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  top: 30%;
+  left: 46%;
+  transform: scale(0.2);
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.H-PlayBtn {
+  position: absolute;
+  color: #6B6B6B;
+  background: white;
+  border: none;
+  border-radius: 12px;
+  top: 90%;
+  left: 50%;
+  width: 200px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  text-transform: uppercase;
+  font-family: Roboto, sans-serif;
+  cursor: pointer;
+  letter-spacing: 2px;
+  font-size: 1rem;
+}
+
+.H-PlayBtn:focus {
+  background: rgba(255, 255, 255, 0.839);
+}
+
+.big-text {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 6.5rem;
+  color: white;
+  letter-spacing: 5px;
+  font-weight: 550;
+}
+
+.small-text {
+  position: absolute;
+  top: 77%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.9rem;
+  color: white;
+  letter-spacing: 2px;
+  font-weight: 550;
+}
+
+
+.header-show {
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.hurray-show {
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+  z-index: 100;
+}
+
+
+
+
+
+

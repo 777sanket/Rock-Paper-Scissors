@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock-Paper-Scissor</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <div class="container">
+
+    <header class="header">
+      <div class="logo">
+        ROCK <br>
+        PAPER <br>
+        SCISSORS <br>
+      </div>
+
+      <div class="score">
+        <div class="me">
+          <div class="score__title">
+            COMPUTER <br>
+            SCORE
+          </div>
+          <div class="score__count pcscore">
+
+          </div>
+        </div>
+        <div class="me">
+          <div class="score__title">
+            YOUR <br>
+            SCORE
+          </div>
+          <div class="score__count myscore">
+
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="game-container">
+      <div class="top">
+        <button class="game-item rock" data-type="rock">
+          <img src="rock.png" alt="Rock">
+        </button>
+        <div class="item2"></div>
+        <button class="game-item scissor" data-type="scissor">
+          <img src="scissor.png" alt="Scissor">
+        </button>
+      </div>
+
+      <div class="middle">
+        <div class="mid1"></div>
+        <div class="mid2"></div>
+      </div>
+
+      <div class="bottom">
+        <button class="game-item paper" data-type="paper">
+          <img src="paper.png" alt="Paper">
+        </button>
+      </div>
+    </div>
+
+
+    <button class="rules__btn" tabindex="1">RULES</button>
+
+    <button class="next__btn" tabindex="2">NEXT</button>
+
+
+    <div class="modal">
+      <button class="close-btn">
+        <img src="X.png" alt="Close">
+      </button>
+      <div class="modal-container">
+        <div class="modal-header">
+          Game Rules
+        </div>
+        <div class="modal-content">
+          <ul>
+            <li> Rock beats scissors, scissors beat paper, and paper beats rock.</li> <br>
+            <li>Agree ahead of time whether you'll count off "rock, paper, scissors, shoot" or just "rock, paper,
+              scissors."</li> <br>
+            <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li> <br>
+            <li>If both players lay down the same hand, each player lays down another hand</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="results">
+      <div class="me-text">
+        You Picked
+      </div>
+
+      <div class="select-btn me-result">
+        <img src="" alt="">
+      </div>
+
+      <div class="result-text">
+        <div class="outcome">
+          <div class="me-win">
+
+          </div>
+
+        </div>
+        <div class="common-text">
+          <h2>Against Pc</h2>
+        </div>
+        <button class="replay">
+          Play Again
+        </button>
+      </div>
+
+      <div class="pc-text">
+        PC Picked
+      </div>
+
+      <div class="select-btn pc-result">
+        <img src="" alt="">
+      </div>
+    </div>
+
+    <div class="Hurray">
+      <div class="Cup">
+        <img src="/Hurray/Vector.png" alt="">
+      </div>
+      <div class="star star-1">
+        <img src="/Hurray/Star 1.png" alt="Star 1">
+      </div>
+      <div class="star star-2">
+        <img src="/Hurray/Star 2.png" alt="Star 2">
+      </div>
+      <div class="star star-3">
+        <img src="/Hurray/Star 6.png" alt="Star 3">
+      </div>
+      <div class="star star-3">
+        <img src="/Hurray/Star 9.png" alt="Star 4">
+      </div>
+      <div class="star star-3">
+        <img src="/Hurray/Star 3.png" alt="Star 5">
+      </div>
+      <div class="star star-3">
+        <img src="/Hurray/Star 3.png" alt="Star 6">
+      </div>
+      <div class="star star-3">
+        <img src="/Hurray/Star 3.png" alt="Star 7">
+      </div>
+      <div class="star star-3">
+        <img src="/Hurray/Star 3.png" alt="Star 8">
+      </div>
+
+      <button class="H-PlayBtn">Play Again</button>
+
+      <div class="text">
+        <div class="big-text">
+          Hurray!!
+        </div>
+        <div class="small-text">
+          You Won The Game
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
