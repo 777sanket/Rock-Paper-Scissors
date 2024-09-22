@@ -46,7 +46,10 @@ btnClose.addEventListener('click', () => {
 choiceBtn.forEach((btn) => {
   btn.addEventListener('click', () => {
     game.classList.toggle('game-show-no');
-    btn.disabled = true;
+    choiceBtn.forEach((btn) => {
+      btn.disabled = true;
+    });
+
     PlayAgain.disabled = false;
     setTimeout(() => {
       btn.disabled = false;
