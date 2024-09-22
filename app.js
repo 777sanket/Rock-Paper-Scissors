@@ -41,19 +41,22 @@ btnClose.addEventListener('click', () => {
   modalRules.classList.toggle('show-modal');
 });
 
+// HPlayBtn.disabled = true;
 
 //Game Function
 choiceBtn.forEach((btn) => {
   btn.addEventListener('click', () => {
     game.classList.toggle('game-show-no');
+
     choiceBtn.forEach((btn) => {
       btn.disabled = true;
     });
 
-    PlayAgain.disabled = false;
-    setTimeout(() => {
-      btn.disabled = false;
-    }, 2000)
+    HPlayBtn.style.zIndex = '-100';
+
+    // setTimeout(() => {
+    //   btn.disabled = false;
+    // }, 2000)
 
     const istyle = getComputedStyle(btn);
     selectBtn.innerHTML = btn.innerHTML;
@@ -102,6 +105,8 @@ choiceBtn.forEach((btn) => {
   });
 });
 
+// HPlayBtn.disabled = true;
+
 //Replay Button
 const PlayAgain = document.querySelector('.replay');
 
@@ -110,12 +115,11 @@ PlayAgain.addEventListener('click', () => {
   btnRules.style.right = '2rem';
   nextBtn.style.opacity = '0';
   nextBtn.style.zIndex = '-10';
-
+  choiceBtn.forEach((btn) => {
+    btn.disabled = false;
+  });
   pcBtn.classList.remove('pulse-effect');
   selectBtn.classList.remove('pulse-effect');
-
-  PlayAgain.disabled = true;
-
 
   setTimeout(() => {
     game.classList.toggle('game-show-no');
@@ -167,12 +171,15 @@ const HPlayBtn = document.querySelector('.H-PlayBtn');
 const header = document.querySelector('.header');
 const stars = document.querySelectorAll('.star');
 
-HPlayBtn.disabled = true;
 
 nextBtn.addEventListener('click', () => {
   res.classList.toggle('show-result');
   header.classList.toggle('header-show');
   hurray.classList.toggle('hurray-show');
+
+  choiceBtn.forEach((btn) => {
+    btn.disabled = false;
+  });
 
   HPlayBtn.disabled = false;
   HPlayBtn.style.cursor = 'pointer';
@@ -184,7 +191,26 @@ nextBtn.addEventListener('click', () => {
   starAnimate();
 });
 
-//STAR ANIMATION
+
+//HURRAY PLAY Again BUTTON
+HPlayBtn.addEventListener('click', () => {
+
+  console.log('HPlayBtn clicked', HPlayBtn.disabled);
+
+  pcBtn.classList.remove('pulse-effect');
+  selectBtn.classList.remove('pulse-effect');
+  setTimeout(() => {
+    hurray.classList.toggle('hurray-show');
+    header.classList.toggle('header-show');
+    game.classList.toggle('game-show-no');
+  }, 100);
+  HPlayBtn.disabled = true;
+  HPlayBtn.style.cursor = 'default';
+  HPlayBtn.style.zIndex = '-100';
+  starAnimate();
+})
+
+
 function starAnimate() {
   const positions = [
     { top: '30%', left: '28%' },
@@ -208,17 +234,10 @@ function starAnimate() {
 }
 
 
-//HURRAY PLAY Again BUTTON
-HPlayBtn.addEventListener('click', () => {
-  pcBtn.classList.remove('pulse-effect');
-  selectBtn.classList.remove('pulse-effect');
-  setTimeout(() => {
-    hurray.classList.toggle('hurray-show');
-    header.classList.toggle('header-show');
-    game.classList.toggle('game-show-no');
-  }, 100);
-  HPlayBtn.disabled = true;
-  HPlayBtn.style.cursor = 'default';
-  HPlayBtn.style.zIndex = '-100';
-  starAnimate();
-})
+window.addEventListener('resize', () => {
+  if (HPlayBtn.disabled === true) {
+    HPlayBtn.disabled = true;
+    HPlayBtn.style.cursor = 'default';
+    HPlayBtn.style.zIndex = '-100';
+  }
+});
