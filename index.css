@@ -97,7 +97,7 @@ body {
 
 .game-show-no{
   opacity: 0;
-  transition: all 0.3s linear;
+  transition: all 0.3s ease-in;
 } 
 
 .top {
@@ -474,6 +474,13 @@ li::marker {
   transition: transform 1s ease, opacity 1s ease;
 }
 
+.star-animate {
+  opacity : 1;
+  transform : translate(0, 0) scale(1);
+  transition: transform 1s ease, opacity 1s ease;
+  /* transition: all 0.5s ease-in-out; */
+}
+
 .H-PlayBtn {
   position: absolute;
   color: #6B6B6B;
@@ -488,7 +495,6 @@ li::marker {
   z-index: 100;
   text-transform: uppercase;
   font-family: Roboto, sans-serif;
-  cursor: pointer;
   letter-spacing: 2px;
   font-size: 1rem;
 }
@@ -527,11 +533,10 @@ li::marker {
 
 .hurray-show {
   opacity: 1;
-  transition: all 0.3s linear;
-  /* transition: all 0.3s ease-in-out; */
-  /* transition: transform 3s ease, opacity 3s ease; */
+  transition: all 0.1s ease-out;
   z-index: 100;
 }
+
 
 
 

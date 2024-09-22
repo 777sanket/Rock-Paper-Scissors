@@ -155,23 +155,31 @@ function moveBtn() {
   }
 }
 
-
 //HURRAY DOMS
 const hurray = document.querySelector('.Hurray');
 const HPlayBtn = document.querySelector('.H-PlayBtn');
 const header = document.querySelector('.header');
+const stars = document.querySelectorAll('.star');
+
+HPlayBtn.disabled = true;
 
 nextBtn.addEventListener('click', () => {
   res.classList.toggle('show-result');
   header.classList.toggle('header-show');
   hurray.classList.toggle('hurray-show');
 
+  HPlayBtn.disabled = false;
+  HPlayBtn.style.cursor = 'pointer';
   nextBtn.style.opacity = '0';
   nextBtn.style.zIndex = '-100';
   btnRules.style.right = '2rem';
   btnRules.style.zIndex = '500';
 
-  const stars = document.querySelectorAll('.star');
+  starAnimate();
+});
+
+//STAR ANIMATION
+function starAnimate() {
   const positions = [
     { top: '30%', left: '28%' },
     { top: '13%', left: '55%' },
@@ -186,14 +194,12 @@ nextBtn.addEventListener('click', () => {
   stars.forEach((star, index) => {
     const { top, left } = positions[index];
     setTimeout(() => {
-      star.style.opacity = '1';
-      star.style.transform = `translate(0, 0) scale(1)`;
-      // star.style.transition = 'all 0.2s';
+      star.classList.toggle('star-animate');
       star.style.top = top;
       star.style.left = left;
     }, index * 200);
   });
-});
+}
 
 
 //HURRAY PLAY Again BUTTON
@@ -205,4 +211,8 @@ HPlayBtn.addEventListener('click', () => {
     header.classList.toggle('header-show');
     game.classList.toggle('game-show-no');
   }, 100);
+  HPlayBtn.disabled = true;
+  HPlayBtn.style.cursor = 'default';
+  HPlayBtn.style.zIndex = '-100';
+  starAnimate();
 })
