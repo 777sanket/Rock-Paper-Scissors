@@ -47,7 +47,7 @@ choiceBtn.forEach((btn) => {
   btn.addEventListener('click', () => {
     game.classList.toggle('game-show-no');
     btn.disabled = true;
-
+    PlayAgain.disabled = false;
     setTimeout(() => {
       btn.disabled = false;
     }, 2000)
@@ -110,6 +110,9 @@ PlayAgain.addEventListener('click', () => {
 
   pcBtn.classList.remove('pulse-effect');
   selectBtn.classList.remove('pulse-effect');
+
+  PlayAgain.disabled = true;
+
 
   setTimeout(() => {
     game.classList.toggle('game-show-no');
