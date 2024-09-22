@@ -167,8 +167,9 @@ nextBtn.addEventListener('click', () => {
   hurray.classList.toggle('hurray-show');
 
   nextBtn.style.opacity = '0';
-  nextBtn.style.zIndex = '-10';
+  nextBtn.style.zIndex = '-100';
   btnRules.style.right = '2rem';
+  btnRules.style.zIndex = '500';
 
   const stars = document.querySelectorAll('.star');
   const positions = [
@@ -187,9 +188,10 @@ nextBtn.addEventListener('click', () => {
     setTimeout(() => {
       star.style.opacity = '1';
       star.style.transform = `translate(0, 0) scale(1)`;
+      // star.style.transition = 'all 0.2s';
       star.style.top = top;
       star.style.left = left;
-    }, index * 100);
+    }, index * 200);
   });
 });
 

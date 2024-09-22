@@ -97,7 +97,7 @@ body {
 
 .game-show-no{
   opacity: 0;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s linear;
 } 
 
 .top {
@@ -228,6 +228,7 @@ body {
   border: 6px solid #FFFFFF;
   border-radius: 50%;
   cursor: pointer;
+  z-index: 101;
 }
 
 
@@ -374,6 +375,7 @@ li::marker {
   letter-spacing: 2px;
   font: 1rem Roboto, sans-serif;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 /* Pulse Effect CSS */
@@ -425,6 +427,7 @@ li::marker {
   font: 2rem Roboto, sans-serif;
   text-transform: uppercase;
   z-index: -10;
+  cursor: pointer;
 }
 
 .next__btn:focus {
@@ -451,6 +454,7 @@ li::marker {
   align-items: center;
   opacity: 0;
   z-index: -200;
+  transition: all 1s ease-in-out;
   }
 
 .Cup {
@@ -523,9 +527,13 @@ li::marker {
 
 .hurray-show {
   opacity: 1;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s linear;
+  /* transition: all 0.3s ease-in-out; */
+  /* transition: transform 3s ease, opacity 3s ease; */
   z-index: 100;
 }
+
+
 
 
 
